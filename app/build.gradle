@@ -4,13 +4,14 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.gearoenix.demo"
-        minSdkVersion 14
+        minSdkVersion 9
         targetSdkVersion 14
         versionCode 1
         versionName "1.0"
         externalNativeBuild {
             cmake {
-                cppFlags "-std=c++14 -frtti -fexceptions"
+                abiFilters "armeabi-v7a", 'arm64-v8a', 'x86', 'x86_64'
+                arguments '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=c++_static'
             }
         }
     }
